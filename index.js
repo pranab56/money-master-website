@@ -23,9 +23,35 @@ document.getElementById('claculate').addEventListener('click',function(){
       
         const BalanceInput=document.getElementById('balance');
         BalanceInput.innerText=balance
+
+        document.getElementById('save').addEventListener('click',function(){
+
+
+          
+          const saveInputTotal=getInputTotal('saveInput')
+          
+          if(saveInputTotal>0){
+            saveInput.value=balance / (Math.round(saveInputTotal));
+            
+          }
+          else{
+            alert('Your number is incorrect. Please enter the correct number')
+          }
+          
+          const savingAmount=document.getElementById('saving-amount');
+          savingAmount.innerText=saveInput.value
+          const remainingBalance=document.getElementById('remaining-balance');
+          remainingBalance.innerText=balance - (Math.round(saveInput.value) );
+          saveInput.value='';
+         
+        })
         }  
       }
       else{
         alert('Your number is incorrect. Please enter the correct number')
       }
+      
 })
+
+
+
