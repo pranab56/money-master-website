@@ -1,9 +1,10 @@
+// function 
 function getInputTotal(getId){
   const input=document.getElementById(getId);
   const TotalInput=parseFloat(input.value);
   return TotalInput
 }
-
+// claculate button
 document.getElementById('claculate').addEventListener('click',function(){
       const income=getInputTotal('income-input')
       const foodTotal=getInputTotal('food-input')
@@ -18,21 +19,31 @@ document.getElementById('claculate').addEventListener('click',function(){
            
              const BalanceInput=document.getElementById('balance');
              BalanceInput.innerText=balance
-        
+        // save button
         document.getElementById('save').addEventListener('click',function(){
           const saveInputTotal=getInputTotal('saveInput')
-          if(saveInputTotal>0){
-            saveInput.value=(income/100 )* saveInputTotal;
+         
+          if(income>saveInputTotal){
+            saveInput.value=(income/100 )* saveInputTotal; 
           }
           else{
             alert('Your number is incorrect. Please enter the correct number!!')
           }
-          
+
           const savingAmount=document.getElementById('saving-amount');
           savingAmount.innerText=saveInput.value
+          
           const remainingBalance=document.getElementById('remaining-balance');
           remainingBalance.innerText=balance - saveInput.value;
           saveInput.value='';
+       
+            
+          
+          
+           
+          
+     
+        
         })
         } 
         else{
